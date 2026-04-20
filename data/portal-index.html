@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ThankRain Setup Portal</title>
+  <style>
+    :root {
+      --bg: #081218;
+      --panel: #10222b;
+      --panel-2: #173541;
+      --txt: #def4ff;
+      --muted: #93b8c7;
+      --primary: #3fd0bb;
+      --warning: #f7c56d;
+      --danger: #ff7f7f;
+      --line: #2c4d59;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--txt);
+      background:
+        radial-gradient(circle at 90% 12%, #143743 0%, transparent 38%),
+        radial-gradient(circle at 12% 84%, #0e2a33 0%, transparent 32%),
+        var(--bg);
+    }
+    .shell {
+      width: min(760px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.42);
+      overflow: hidden;
+    }
+    .hero {
+      padding: 18px 18px 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.52rem;
+      letter-spacing: 0.2px;
+    }
+    h2 {
+      margin: 16px 0 8px;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    .sub {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .content {
+      padding: 16px;
+      display: grid;
+      gap: 16px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    .status {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #0d1f27;
+      padding: 10px;
+    }
+    .k {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .form-section {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #0d1f27;
+      padding: 12px;
+      display: grid;
+      gap: 10px;
+    }
+    .form-row {
+      display: grid;
+      gap: 6px;
+    }
+    .form-row label {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+    .form-row input,
+    .form-row select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #355967;
+      background: #0a1a20;
+      color: var(--txt);
+      outline: none;
+      font-size: 1rem;
+    }
+    .form-row input:focus,
+    .form-row select:focus {
+      border-color: #57b8d0;
+      box-shadow: 0 0 0 2px rgba(95, 184, 208, 0.2);
+    }
+    .form-row.inline {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .form-row.inline input,
+    .form-row.inline select {
+      flex: 1;
+      min-width: 0;
+    }
+    .form-row.inline button {
+      flex-shrink: 0;
+    }
+    .msg {
+      min-height: 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 6px 0;
+    }
+    .msg.ok { color: #91efad; }
+    .msg.err { color: #ff9f9f; }
+    .msg.info { color: #b4f4e8; }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 0.2s ease, transform 0.08s ease;
+      font-size: 0.95rem;
+    }
+    .btn:hover { filter: brightness(1.06); }
+    .btn:active { transform: translateY(1px); }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-main {
+      background: var(--primary);
+      color: #09221e;
+    }
+    .btn-soft {
+      background: #1d404c;
+      color: var(--txt);
+      border: 1px solid #315c68;
+    }
+    .btn-danger {
+      background: #3f1d24;
+      color: #ffc9cf;
+      border: 1px solid #703440;
+    }
+    .note {
+      font-size: 0.86rem;
+      color: var(--warning);
+      background: rgba(247, 197, 109, 0.08);
+      border: 1px dashed rgba(247, 197, 109, 0.45);
+      border-radius: 10px;
+      padding: 10px;
+      line-height: 1.35;
+    }
+    .info {
+      font-size: 0.86rem;
+      color: var(--muted);
+      background: rgba(147, 184, 199, 0.08);
+      border: 1px dashed rgba(147, 184, 199, 0.45);
+      border-radius: 10px;
+      padding: 10px;
+      line-height: 1.35;
+
+    }
+    .msg {
+      min-height: 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .msg.ok { color: #91efad; }
+    .msg.err { color: #ff9f9f; }
+    @media (max-width: 620px) {
+      .status { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; text-align: center; }
+      .form-row.inline {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+      .form-row.inline button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <h1>⚙️ ThankRain Setup Portal</h1>
+      <p class="sub">Mode AP actif. Configurez WiFi et paramètres de la cuve.</p>
+    </header>
+
+    <section class="content">
+      <div class="status">
+        <div class="box">
+          <div class="k">Portail</div>
+          <div class="v" id="portalHost">http://192.168.4.1</div>
+        </div>
+        <div class="box">
+          <div class="k">État AP</div>
+          <div class="v" id="apState">Actif</div>
+        </div>
+      </div>
+
+      <!-- WiFi Configuration -->
+      <div>
+        <h2>📡 Configuration WiFi</h2>
+        <div class="form-section">
+          <div class="form-row">
+            <label for="wifiList">Réseaux détectés</label>
+            <div class="form-row inline">
+              <select id="wifiList"></select>
+              <button class="btn btn-soft" id="scanBtn" type="button">Scanner</button>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="ssidInput">SSID</label>
+            <input id="ssidInput" type="text" placeholder="Nom du réseau WiFi">
+          </div>
+          <div class="form-row">
+            <label for="passInput">Mot de passe</label>
+            <input id="passInput" type="password" placeholder="Laisser vide si réseau ouvert">
+          </div>
+          <div>
+            <button class="btn btn-main" id="saveWifiBtn" type="button">Initialiser WiFi</button>
+            <div class="msg" id="wifiMsg"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tank Configuration -->
+      <div>
+        <h2>💧 Configuration de base de la Cuve</h2>
+        <div class="form-section">
+          <div class="form-row">
+            <label for="tankCapacite">Capacité (Litres)</label>
+            <input id="tankCapacite" type="number" placeholder="5000" min="0" max="100000" step="100">
+          </div>
+          <div class="form-row">
+            <label for="tankHeight">Hauteur (mm)</label>
+            <input id="tankHeight" type="number" placeholder="1190" min="0" max="100000" step="1">
+          </div>
+          <div class="form-row">
+            <label for="sensorOffset">Distance de montage capteur (mm)</label>
+            <input id="sensorOffset" type="number" placeholder="390" min="0" max="1000" step="1">
+          </div>
+          <div>
+            <button class="btn btn-main" id="saveTankBtn" type="button">Enregistrer config cuve</button>
+            <div class="msg" id="tankMsg"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="info">
+        <strong>Capacité:</strong> Volume total de la cuve en litres.<br>
+        <strong>Hauteur:</strong> Hauteur utile d'eau en mm (de 0% a 100%).<br>
+        <strong>Distance de montage capteur:</strong> Distance entre le capteur et le niveau d'eau quand la cuve est pleine (100%). Les réglages avancés du capteur se font dans le dashboard Web.
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button class="btn btn-soft" id="stopApBtn" type="button">Fermer AP</button>
+        <button class="btn btn-danger" id="rebootBtn" type="button">Redémarrer ESP</button>
+      </div>
+
+      <div class="note">
+        Le mode AP s'arrête automatiquement après 10 min d'inactivité. Pour accéder à la configuration complète, connectez-vous au dashboard Web principal.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const portalHost = document.getElementById("portalHost");
+    const apState = document.getElementById("apState");
+    const rebootBtn = document.getElementById("rebootBtn");
+    const stopApBtn = document.getElementById("stopApBtn");
+    const wifiList = document.getElementById("wifiList");
+    const ssidInput = document.getElementById("ssidInput");
+    const passInput = document.getElementById("passInput");
+    const scanBtn = document.getElementById("scanBtn");
+    const saveWifiBtn = document.getElementById("saveWifiBtn");
+    const wifiMsg = document.getElementById("wifiMsg");
+
+    const tankCapacite = document.getElementById("tankCapacite");
+    const tankHeight = document.getElementById("tankHeight");
+    const sensorOffset = document.getElementById("sensorOffset");
+    const saveTankBtn = document.getElementById("saveTankBtn");
+    const tankMsg = document.getElementById("tankMsg");
+
+    let provisioningToken = "";
+    let saveInProgress = false;
+    let lastProvisioningAttemptMs = 0;
+    let wifiStatePollHandle = null;
+    let wifiScanGeneration = 0;
+
+    portalHost.textContent = window.location.origin;
+
+    function setMsg(element, text, type) {
+      element.textContent = text || "";
+      element.className = "msg" + (type ? " " + type : "");
+    }
+
+    async function loadCurrentSettings() {
+      try {
+        const res = await fetch("/get-settings", { cache: "no-store" });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.tank) {
+          tankCapacite.value = data.tank.capacite_L?.value || 5000;
+          tankHeight.value = data.tank.height_mm?.value || 1190;
+          sensorOffset.value = data.sensor?.offset_mm?.value || 390;
+        }
+      } catch (err) {
+        console.error("Load settings error:", err);
+      }
+    }
+
+    async function loadCurrentSsid() {
+      try {
+        const res = await fetch("/wifi/current", { cache: "no-store" });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.ssid) {
+          ssidInput.value = data.ssid;
+        }
+      } catch (err) {
+      }
+    }
+
+    async function loadProvisioningToken() {
+      try {
+        const res = await fetch("/wifi/token", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        provisioningToken = data.token || "";
+      } catch (err) {
+        provisioningToken = "";
+        setMsg(wifiMsg, "Token de session indisponible", "err");
+      }
+    }
+
+    function updateApStateLabel(stateData) {
+      if (!stateData) {
+        return;
+      }
+
+      const state = stateData.state || "Inconnu";
+      const connected = !!stateData.connected;
+      const staSsid = stateData.ssid || "";
+
+      if (connected) {
+        apState.textContent = "Actif | STA connecte" + (staSsid ? " (" + staSsid + ")" : "");
+      } else {
+        apState.textContent = "Actif | STA: " + state;
+      }
+    }
+
+    function formatSecondsFromMs(valueMs) {
+      const v = Number(valueMs) || 0;
+      return Math.max(0, Math.ceil(v / 1000));
+    }
+
+    function isProvisioningConnectionActive(stateData) {
+      if (!stateData || stateData.connected) {
+        return false;
+      }
+
+      const state = String(stateData.state || "").toLowerCase();
+      const attempt = Number(stateData.attempt) || 0;
+      return attempt > 0 && (state === "start" || state === "connecting" || state === "retry");
+    }
+
+    function stopWifiStatePolling() {
+      if (wifiStatePollHandle) {
+        clearInterval(wifiStatePollHandle);
+        wifiStatePollHandle = null;
+      }
+    }
+
+    function wifiDisconnectReasonText(reason) {
+      switch (Number(reason) || 0) {
+        case 201:
+          return "SSID introuvable";
+        case 15:
+        case 23:
+        case 202:
+        case 204:
+          return "Mot de passe WiFi invalide";
+        case 1:
+          return "Connexion refusee";
+        case 4:
+          return "Handshake echoue";
+        case 8:
+          return "Signal WiFi trop faible";
+        default:
+          return "Erreur WiFi";
+      }
+    }
+
+    async function refreshWifiState() {
+      try {
+        const res = await fetch("/wifi/state", { cache: "no-store" });
+        if (!res.ok) {
+          if (res.status === 404) {
+            stopWifiStatePolling();
+            apState.textContent = "Fermé";
+          }
+          return null;
+        }
+
+        const stateData = await res.json();
+        updateApStateLabel(stateData);
+
+        if (saveInProgress) {
+          return;
+        }
+
+        if (stateData.connected) {
+          setMsg(wifiMsg, "Connexion WiFi reussie", "ok");
+          return stateData;
+        }
+
+        const recentLocalAttempt = lastProvisioningAttemptMs > 0 && (Date.now() - lastProvisioningAttemptMs) < 60000;
+        const state = String(stateData.state || "").toLowerCase();
+        if (recentLocalAttempt || state === "error" || isProvisioningConnectionActive(stateData)) {
+          const attempt = Number(stateData.attempt) || 0;
+          const hint = String(stateData.hint || "").trim();
+          const lastDiscReason = Number(stateData.lastDisconnectReason) || 0;
+          const retryDelayS = formatSecondsFromMs(stateData.retryDelayMs);
+          const waitBeforeRetryS = formatSecondsFromMs(stateData.waitBeforeRetryMs);
+          const connectElapsedS = formatSecondsFromMs(stateData.stateElapsedMs);
+          const connectTimeoutS = formatSecondsFromMs(stateData.connectTimeoutMs);
+
+          if (state === "retry" || state === "error") {
+            let txt = "Echec connexion (essai #" + attempt + ")";
+            if (waitBeforeRetryS > 0) {
+              txt += " | nouvel essai dans " + waitBeforeRetryS + "s";
+            }
+            txt += " | delai retry=" + retryDelayS + "s";
+            if (hint) {
+              txt += " | " + hint;
+            }
+            if (lastDiscReason > 0) {
+              txt += " | " + wifiDisconnectReasonText(lastDiscReason) + " (" + lastDiscReason + ")";
+            }
+            if (state === "error") {
+              txt += " | corrigez les identifiants puis relancez";
+            }
+            setMsg(wifiMsg, txt, "err");
+          } else if (state === "start" || state === "connecting") {
+            let txt = "Connexion WiFi en cours (essai #" + attempt + ")";
+            if (connectTimeoutS > 0) {
+              txt += " | " + connectElapsedS + "s/" + connectTimeoutS + "s";
+            }
+            if (lastDiscReason > 0) {
+              txt += " | " + wifiDisconnectReasonText(lastDiscReason) + " (" + lastDiscReason + ")";
+            }
+            setMsg(wifiMsg, txt, "info");
+          }
+        }
+        return stateData;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function startWifiStatePolling() {
+      stopWifiStatePolling();
+
+      refreshWifiState();
+      wifiStatePollHandle = setInterval(refreshWifiState, 2000);
+    }
+
+    async function scanWifi() {
+      if (scanBtn.disabled || saveInProgress) {
+        return;
+      }
+
+      try {
+        const stateRes = await fetch("/wifi/state", { cache: "no-store" });
+        if (stateRes.ok) {
+          const stateData = await stateRes.json();
+          if (isProvisioningConnectionActive(stateData) && !stateData.connected) {
+            setMsg(wifiMsg, "Connexion en cours: scan suspendu", "info");
+            return;
+          }
+        }
+      } catch (_) {
+      }
+
+      const scanRun = ++wifiScanGeneration;
+      setMsg(wifiMsg, "Scan en cours...", "info");
+      scanBtn.disabled = true;
+      try {
+        let networks = [];
+        const startedAt = Date.now();
+
+        while (Date.now() - startedAt < 12000) {
+          if (scanRun !== wifiScanGeneration || saveInProgress) {
+            return;
+          }
+
+          const res = await fetch("/wifi/scan", { cache: "no-store" });
+          if (!res.ok && res.status !== 202) {
+            throw new Error("HTTP " + res.status);
+          }
+
+          const data = await res.json().catch(() => ({}));
+          networks = Array.isArray(data.networks) ? data.networks : [];
+
+          if (res.status === 202 || data.running) {
+            const waitMs = Number(data.waitMs) || 350;
+            await new Promise((resolve) => setTimeout(resolve, Math.max(150, waitMs)));
+            continue;
+          }
+
+          break;
+        }
+
+        wifiList.innerHTML = "";
+        if (networks.length === 0) {
+          const opt = document.createElement("option");
+          opt.value = "";
+          opt.textContent = "Aucun réseau détecté";
+          wifiList.appendChild(opt);
+          setMsg(wifiMsg, "Aucun réseau détecté", "err");
+          return;
+        }
+
+        networks.sort((a, b) => b.rssi - a.rssi);
+        networks.forEach((n) => {
+          const opt = document.createElement("option");
+          const lock = n.open ? "" : "🔒 ";
+          opt.value = n.ssid || "";
+          opt.textContent = lock + (n.ssid || "(SSID caché)") + "  (" + n.rssi + " dBm)";
+          wifiList.appendChild(opt);
+        });
+
+        ssidInput.value = wifiList.value || ssidInput.value;
+        setMsg(wifiMsg, "Scan terminé", "ok");
+      } catch (err) {
+        setMsg(wifiMsg, "Erreur scan WiFi", "err");
+      } finally {
+        if (!saveInProgress) {
+          scanBtn.disabled = false;
+        }
+      }
+    }
+
+    wifiList.addEventListener("change", () => {
+      ssidInput.value = wifiList.value;
+    });
+
+    scanBtn.addEventListener("click", scanWifi);
+
+    saveWifiBtn.addEventListener("click", async () => {
+      const ssid = ssidInput.value.trim();
+      const password = passInput.value;
+
+      if (saveInProgress) {
+        return;
+      }
+
+      if (!ssid) {
+        setMsg(wifiMsg, "SSID obligatoire", "err");
+        return;
+      }
+      if (password.length > 0 && password.length < 8) {
+        setMsg(wifiMsg, "Mot de passe min 8 caractères", "err");
+        return;
+      }
+
+      saveInProgress = true;
+      // Cancel any running scan loop before forcing STA connection attempts.
+      wifiScanGeneration++;
+      saveWifiBtn.disabled = true;
+      scanBtn.disabled = true;
+      setMsg(wifiMsg, "Sauvegarde WiFi...", "info");
+
+      try {
+        if (!provisioningToken) {
+          throw new Error("token manquant");
+        }
+
+        const res = await fetch("/wifi/provision", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ssid, password, token: provisioningToken })
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error || ("HTTP " + res.status));
+        }
+
+        lastProvisioningAttemptMs = Date.now();
+        setMsg(wifiMsg, "WiFi enregistré. Tentative de connexion en cours...", "ok");
+      } catch (err) {
+        setMsg(wifiMsg, "Erreur: " + (err.message || "inconnu"), "err");
+      } finally {
+        saveInProgress = false;
+        saveWifiBtn.disabled = false;
+        scanBtn.disabled = false;
+      }
+    });
+
+    saveTankBtn.addEventListener("click", async () => {
+      const capacite = parseFloat(tankCapacite.value);
+      const height = parseFloat(tankHeight.value);
+      const offset = parseFloat(sensorOffset.value);
+
+      if (isNaN(capacite) || capacite <= 0) {
+        setMsg(tankMsg, "Capacité invalide", "err");
+        return;
+      }
+      if (isNaN(height) || height <= 0) {
+        setMsg(tankMsg, "Hauteur invalide", "err");
+        return;
+      }
+      if (isNaN(offset) || offset < 0) {
+        setMsg(tankMsg, "Distance de montage capteur invalide", "err");
+        return;
+      }
+
+      saveTankBtn.disabled = true;
+      setMsg(tankMsg, "Sauvegarde en cours...", "info");
+
+      try {
+        const res = await fetch("/save-settings", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            tank: {
+              capacite_L: { value: capacite },
+              height_mm: { value: height },
+              offset_mm: { value: offset }
+            },
+            sensor: {
+              offset_mm: { value: offset }
+            }
+          })
+        });
+
+        if (!res.ok) {
+          throw new Error("HTTP " + res.status);
+        }
+
+        setMsg(tankMsg, "Configuration cuve enregistrée ✓", "ok");
+      } catch (err) {
+        setMsg(tankMsg, "Erreur: " + (err.message || "inconnu"), "err");
+      } finally {
+        saveTankBtn.disabled = false;
+      }
+    });
+
+    rebootBtn.addEventListener("click", async () => {
+      if (!confirm("Redémarrer l'ESP32 maintenant ?")) return;
+      try {
+        const res = await fetch("/reboot", { method: "POST" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        alert("Redémarrage en cours...");
+      } catch (err) {
+        alert("Erreur lors du reboot");
+      }
+    });
+
+    stopApBtn.addEventListener("click", async () => {
+      if (!confirm("Fermer le mode AP maintenant ?")) return;
+      try {
+        const res = await fetch("/wifi/ap/stop", { method: "POST" });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) throw new Error(data.error || ("HTTP " + res.status));
+
+        stopWifiStatePolling();
+        apState.textContent = "Fermé";
+        setMsg(wifiMsg, "AP fermé. Si besoin, reconnectez-vous au WiFi principal.", "ok");
+        stopApBtn.disabled = true;
+      } catch (err) {
+        alert("Erreur: " + err.message);
+      }
+    });
+
+    // Load current settings and token on page load
+    (async () => {
+      await loadCurrentSettings();
+      await loadCurrentSsid();
+      await loadProvisioningToken();
+      const stateData = await refreshWifiState();
+      startWifiStatePolling();
+      if (!isProvisioningConnectionActive(stateData)) {
+        scanWifi();
+      }
+    })();
+  </script>
+</body>
+</html>

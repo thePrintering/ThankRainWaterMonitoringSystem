@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="320" viewBox="0 0 170 320">
+  <rect width="170" height="320" fill="#000000"/>
+  <rect x="0" y="0" width="170" height="320" rx="4" fill="none" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="10" y="24" fill="#00ff66" font-size="16" font-family="monospace" font-weight="700">Niveau de</text>
+  <text x="10" y="44" fill="#00ff66" font-size="16" font-family="monospace" font-weight="700">remplissage</text>
+  <rect x="5" y="5" width="160" height="310" fill="none" stroke="#2b2b2b" stroke-width="1.2"/>
+  <line x1="53" y1="70" x2="62" y2="70" stroke="#00ff66" stroke-width="1.2"/>
+  <line x1="53" y1="120" x2="62" y2="120" stroke="#00ff66" stroke-width="1.2"/>
+  <line x1="53" y1="170" x2="62" y2="170" stroke="#00ff66" stroke-width="1.2"/>
+  <line x1="53" y1="220" x2="62" y2="220" stroke="#00ff66" stroke-width="1.2"/>
+  <line x1="53" y1="270" x2="62" y2="270" stroke="#00ff66" stroke-width="1.2"/>
+  <rect x="21" y="140" width="28" height="130" fill="#1565ff"/>
+  <rect x="20" y="70" width="30" height="200" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <text x="70" y="142" fill="#00ff66" font-size="24" font-family="monospace" font-weight="700">65</text>
+  <text x="106" y="142" fill="#00ff66" font-size="24" font-family="monospace" font-weight="700">%</text>
+  <rect x="72" y="202" width="66" height="36" fill="#1565ff"/>
+  <line x1="72" y1="202" x2="137" y2="202" stroke="#66f2ff" stroke-width="1.2"/>
+  <rect x="70" y="180" width="70" height="60" rx="8" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+  <circle cx="105" cy="170" r="4" fill="#66f2ff"/>
+  <line x1="105" y1="174" x2="105" y2="180" stroke="#66f2ff" stroke-width="1.2"/>
+  <text x="70" y="274" fill="#1565ff" font-size="16" font-family="monospace" font-weight="700">325 L</text>
+  <text x="10" y="306" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">Derniere mesure: </text>
+  <text x="112" y="306" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">14:30</text>
+</svg>

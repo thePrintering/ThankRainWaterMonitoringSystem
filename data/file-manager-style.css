@@ -1,0 +1,195 @@
+@import url("base-style.css");
+
+.file-manager-page {
+    justify-content: center;
+}
+
+.file-manager-page .left-column {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.fm-toolbar {
+    margin: 8px 0;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fm-page-actions {
+    background: linear-gradient(180deg, #f6fbff 0%, #eef6fc 100%);
+    border: 1px solid #d6e5f2;
+}
+
+.fm-path {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.85em;
+    color: #2c3e50;
+    background: #eef3f7;
+    border-radius: 6px;
+    padding: 6px 8px;
+    flex: 1;
+    min-width: 220px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fm-page-info {
+    font-size: 0.85em;
+    color: #4d5b68;
+    font-weight: 600;
+}
+
+.fm-table-wrapper {
+    max-height: 260px;
+}
+
+#fmTable th,
+#fmTable td {
+    font-size: 0.82em;
+    padding: 7px 8px;
+}
+
+.fm-upload-form {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#fmBackBtn {
+    background: linear-gradient(135deg, var(--btn-neutral-start) 0%, var(--btn-neutral-end) 100%);
+    box-shadow: 0 4px 12px rgba(71, 90, 107, 0.3);
+}
+
+#fmBackBtn:hover {
+    background: linear-gradient(135deg, var(--btn-neutral-hover-start) 0%, var(--btn-neutral-hover-end) 100%);
+}
+
+#fmRefreshBtn {
+    background: linear-gradient(135deg, var(--btn-info-start) 0%, var(--btn-info-end) 100%);
+    box-shadow: 0 4px 12px rgba(31, 138, 164, 0.3);
+}
+
+#fmRefreshBtn:hover {
+    background: linear-gradient(135deg, var(--btn-info-hover-start) 0%, var(--btn-info-hover-end) 100%);
+}
+
+#fmUpBtn {
+    background: linear-gradient(135deg, var(--btn-accent-start) 0%, var(--btn-accent-end) 100%);
+    box-shadow: 0 4px 12px rgba(101, 86, 183, 0.3);
+}
+
+#fmUpBtn:hover {
+    background: linear-gradient(135deg, var(--btn-accent-hover-start) 0%, var(--btn-accent-hover-end) 100%);
+}
+
+#fmPrevBtn,
+#fmNextBtn {
+    background: linear-gradient(135deg, var(--btn-warning-start) 0%, var(--btn-warning-end) 100%);
+    box-shadow: 0 4px 12px rgba(219, 133, 38, 0.3);
+}
+
+#fmPrevBtn:hover,
+#fmNextBtn:hover {
+    background: linear-gradient(135deg, var(--btn-warning-hover-start) 0%, var(--btn-warning-hover-end) 100%);
+}
+
+#fmMkdirBtn,
+.fm-upload-form button {
+    background: linear-gradient(135deg, var(--btn-success-start) 0%, var(--btn-success-end) 100%);
+    box-shadow: 0 4px 12px rgba(35, 145, 80, 0.3);
+}
+
+#fmMkdirBtn:hover,
+.fm-upload-form button:hover {
+    background: linear-gradient(135deg, var(--btn-success-hover-start) 0%, var(--btn-success-hover-end) 100%);
+}
+
+.fm-row-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.fm-row-actions button {
+    margin: 0;
+    padding: 5px 8px;
+    font-size: 0.78em;
+}
+
+.fm-row-actions button[data-action="download"] {
+    background: linear-gradient(135deg, var(--btn-primary-start) 0%, var(--btn-primary-end) 100%);
+}
+
+.fm-row-actions button[data-action="open"] {
+    background: linear-gradient(135deg, var(--btn-accent-start) 0%, var(--btn-accent-end) 100%);
+}
+
+.fm-row-actions button[data-action="delete"] {
+    background: linear-gradient(135deg, var(--btn-danger-start) 0%, var(--btn-danger-end) 100%);
+    box-shadow: 0 4px 12px rgba(191, 63, 63, 0.3);
+}
+
+button[disabled] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.fm-status {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 0.9em;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.fm-status--info {
+    display: block;
+    color: var(--banner-info-text);
+    background: var(--banner-info-bg);
+    border-color: var(--banner-info-border);
+}
+
+.fm-status--progress {
+    display: block;
+    color: var(--banner-progress-text);
+    background: var(--banner-progress-bg);
+    border-color: var(--banner-progress-border);
+}
+
+.fm-status--success {
+    display: block;
+    color: var(--banner-success-text);
+    background: var(--banner-success-bg);
+    border-color: var(--banner-success-border);
+}
+
+.fm-status--error {
+    display: block;
+    color: var(--banner-error-text);
+    background: var(--banner-error-bg);
+    border-color: var(--banner-error-border);
+}
+
+@media (max-width: 768px) {
+    .fm-toolbar {
+        gap: 8px;
+    }
+
+    .fm-path {
+        width: 100%;
+        min-width: 0;
+    }
+}
