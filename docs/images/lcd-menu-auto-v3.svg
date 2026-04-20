@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="320" viewBox="0 0 170 320">
+  <rect width="170" height="320" fill="#000000"/>
+  <rect x="0" y="0" width="170" height="320" rx="4" fill="none" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="10" y="34" fill="#00ff66" font-size="16" font-family="monospace" font-weight="700">Parametres</text>
+  <rect x="10" y="70" width="96" height="8" fill="#a2a0a0"/>
+  <text x="10" y="76" fill="#000000" font-size="8" font-family="monospace" font-weight="700">Informations  -&gt;</text>
+  <text x="10" y="96" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">Display  -&gt;</text>
+  <text x="10" y="116" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">Periode mesure</text>
+  <text x="94" y="116" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">: </text>
+  <text x="106" y="116" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">30000</text>
+  <text x="10" y="136" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">WiFi  -&gt;</text>
+  <text x="10" y="156" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">Reset usine</text>
+  <polygon points="5,305 15,305 10,315" fill="#00ff66"/>
+  <polygon points="165,305 165,315 155,310" fill="#00ff66"/>
+</svg>

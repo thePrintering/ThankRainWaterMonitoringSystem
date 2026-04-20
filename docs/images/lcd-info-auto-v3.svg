@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170" height="320" viewBox="0 0 170 320">
+  <rect width="170" height="320" fill="#000000"/>
+  <rect x="0" y="0" width="170" height="320" rx="4" fill="none" stroke="#2b2b2b" stroke-width="1.5"/>
+  <text x="10" y="24" fill="#00ff66" font-size="16" font-family="monospace" font-weight="700">Infos</text>
+  <text x="5" y="61" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">SSID : </text>
+  <text x="47" y="61" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">******</text>
+  <text x="5" y="76" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">IP : </text>
+  <text x="35" y="76" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">192.168.1.120</text>
+  <text x="5" y="91" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">Hostname : </text>
+  <text x="71" y="91" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">citerne.local</text>
+  <text x="5" y="106" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">Wifi State : </text>
+  <text x="83" y="106" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">Connected</text>
+  <text x="5" y="121" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">Signal : </text>
+  <text x="59" y="121" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">-60</text>
+  <text x="77" y="121" fill="#ffff00" font-size="8" font-family="monospace" font-weight="700">dBm</text>
+  <text x="5" y="141" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">SD : </text>
+  <text x="35" y="141" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">OK</text>
+  <text x="5" y="156" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">Type : </text>
+  <text x="47" y="156" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">SD</text>
+  <text x="5" y="171" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">Used : </text>
+  <text x="47" y="171" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">37</text>
+  <text x="59" y="171" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700"> %</text>
+  <text x="5" y="186" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">Used : </text>
+  <text x="47" y="186" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">12</text>
+  <text x="59" y="186" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700"> / </text>
+  <text x="77" y="186" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700">32</text>
+  <text x="89" y="186" fill="#8f00ff" font-size="8" font-family="monospace" font-weight="700"> MB</text>
+  <text x="5" y="214" fill="#00ff66" font-size="16" font-family="monospace" font-weight="700">Firmware</text>
+  <text x="5" y="236" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">Vers. : </text>
+  <text x="53" y="236" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">1.0.0</text>
+  <text x="5" y="251" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">Auteur : </text>
+  <text x="59" y="251" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">KylRuch</text>
+  <text x="5" y="266" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">Date build : </text>
+  <text x="83" y="266" fill="#00ff66" font-size="8" font-family="monospace" font-weight="700">2026-04-10</text>
+  <text x="5" y="286" fill="#66f2ff" font-size="8" font-family="monospace" font-weight="700">Now: </text>
+  <text x="35" y="286" fill="#66f2ff" font-size="8" font-family="monospace" font-weight="700">2026-04-10</text>
+  <text x="5" y="301" fill="#66f2ff" font-size="8" font-family="monospace" font-weight="700">Time: </text>
+  <text x="41" y="301" fill="#66f2ff" font-size="8" font-family="monospace" font-weight="700">12:00:00</text>
+</svg>
