@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="settings-style.css?v=20260409">
+
+  <title>ESP32 Settings</title>
+</head>
+
+<body>
+  <header>
+    <h1>ESP32 Settings</h1>
+  </header>
+
+  <div class="settings-shell">
+    <div class="settings-topbar card">
+      <button id="backHomeBtn" type="button">← Tableau de bord</button>
+      <button id="openFileManagerBtn" type="button">🗂️ File Manager</button>
+      <button id="loadLogsBtn">Afficher les logs</button>
+      <button id="deleteLogsBtn">Supprimer les logs</button>
+    </div>
+
+    <div class="settings-info card" role="note" aria-label="Information WiFi">
+      La connexion WiFi (SSID / mot de passe) se configure uniquement depuis le portail AP (menu ESP32: WiFi -> AP Manuel). Les réglages avancés du capteur restent dans ce dashboard web.
+    </div>
+
+    <div id="settingsForm" class="card">
+
+    <h3>Cuve</h3>
+    <label>
+      Capacité (L) :
+      <input type="number" id="tankCapacite_L" min="" max="" step="">
+    </label><br>
+
+    <label>
+      Hauteur utile (mm) :
+      <input type="number" id="tankHeight_mm" min="" max="" step="">
+    </label><br>
+
+    <div class="settings-subinfo">
+      Hauteur utile: distance d'eau entre 0% et 100% de remplissage.
+    </div>
+
+    <h3>Mesures</h3>
+    <label>
+      Période mesure :
+      <select id="MEASURE_PERIOD"></select>
+    </label><br>
+
+    <label>
+      Nombre d'échantillons pour le traitement :
+      <input type="number" id="sensorSampleCount" min="" max="" step="">
+    </label><br>
+    <div class="settings-subinfo">
+      Utilisé par le traitement moyenne ou médiane selon le mode choisi.
+    </div>
+
+
+    <label>
+      Traitement des échantillons :
+      <select id="sensorSampleMethod"></select>
+    </label><br>
+
+    <label>
+      Méthode de prédiction :
+      <select id="predictionMethod"></select>
+    </label><br>
+
+    <label>
+      Intervalle entre échantillons :
+      <select id="sensorSampleInterval"></select>
+    </label><br>
+
+    <h3>Capteur</h3>
+    <label>
+      Filtre IQR (anti-outlier) :
+      <input type="checkbox" id="sensorEnableIqrFilter">
+    </label><br>
+    <div class="settings-subinfo">
+      Active/désactive le filtrage des valeurs aberrantes par IQR (quartiles).
+    </div>
+    <label>
+      Distance de montage capteur (mm) :
+      <input type="number" id="sensorOffset_mm" min="" max="" step="">
+    </label><br>
+
+    <div class="settings-subinfo">
+      Distance entre le capteur et le niveau d'eau quand la cuve est pleine (100%).
+    </div>
+
+    <label>
+      Seuil anti-spike (mm) :
+      <input type="number" id="sensorSpikeThreshold" min="" max="" step="">
+    </label><br>
+    <div class="settings-subinfo">
+      Différence maximale entre deux mesures consécutives avant de relancer un reessai capteur.
+    </div>
+
+    <label>
+      Détection de spike :
+      <input type="checkbox" id="sensorEnableSpikeDetection">
+    </label><br>
+    <div class="settings-subinfo">
+      Active/désactive la détection des écarts brutaux (spikes) entre mesures.
+    </div>
+
+    <label>
+      Nombre max de réessais anti-spike :
+      <input type="number" id="sensorSpikeRetryMax" min="" max="" step="">
+    </label><br>
+    <div class="settings-subinfo">
+      Nombre maximum de reessais lorsque la mesure est considérée comme un spike.
+    </div>
+
+    <label>
+      Nombre max de réessais prédiction :
+      <input type="number" id="sensorPredictionRetryMax" min="" max="" step="">
+    </label><br>
+    <div class="settings-subinfo">
+      Nombre maximum de reessais lorsque la mesure est rejetée par le module de prédiction.
+    </div>
+
+    <h3>Boutons</h3>
+    <label>
+      Debounce (ms) :
+      <input type="number" id="DEBOUNCE_TIME" min="" max="" step="">
+    </label><br>
+
+    <label>
+      Appui long (ms) :
+      <input type="number" id="LONG_PRESS_TIME" min="" max="" step="">
+    </label><br>
+
+    <h3>Écran</h3>
+    <label>
+      Luminosité :
+      <select id="bright"></select>
+    </label><br>
+
+    <label>
+      Luminosité veille :
+      <select id="standbyBright"></select>
+    </label><br>
+
+    <h3>Veille</h3>
+    <label>
+      Intervalle veille (sec) :
+      <input type="number" id="standbyInterval" min="" max="" step="">
+    </label><br>
+
+    <label>
+      Veille activée :
+      <input type="checkbox" id="standbyActived">
+    </label><br><br>
+
+    <label>
+      Intervalle page (sec) :
+      <select id="PAGE_INTERVAL"></select>
+    </label><br><br>
+
+    <h3>Heure</h3>
+    <label>
+      Fuseau horaire :
+      <select id="timezoneSelect"></select>
+    </label><br>
+    <label>
+      Ou personnalisé (POSIX format) :
+      <input type="text" id="timezoneString" style="width:100%;" placeholder="ex: CET-1CEST,M3.5.0,M10.5.0">
+    </label><br><br>
+
+      <div class="settings-actions">
+        <button id="saveSettingsBtn">Sauvegarder</button>
+        <button id="cancelSettingsBtn">Annuler</button>
+        <button id="loadDefaultSettingsBtn">Réinitialiser les paramètres par défaut</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="settings-script.js?v=20260409"></script>
+</body>
+</html>

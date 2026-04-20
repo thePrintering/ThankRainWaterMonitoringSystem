@@ -1,0 +1,112 @@
+@import url("base-style.css");
+
+.settings-shell {
+  width: min(1100px, calc(100% - 32px));
+  margin: 20px auto 40px;
+  display: grid;
+  gap: 16px;
+}
+
+.settings-topbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 14px;
+}
+
+.settings-info {
+  padding: 12px 14px;
+  border-left: 4px solid #2a7db8;
+  background: #f3f8fd;
+  color: #2a4258;
+  font-weight: 600;
+}
+
+.settings-subinfo {
+  margin: -4px 0 12px;
+  padding: 8px 10px;
+  border-left: 3px solid #7aa8ca;
+  background: #f7fbff;
+  color: #3f566a;
+  font-size: 0.9rem;
+}
+
+#settingsForm {
+  padding: 22px;
+}
+
+#settingsForm h3 {
+  margin-top: 22px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #d9e2ec;
+  padding-bottom: 6px;
+}
+
+#settingsForm label {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #415162;
+}
+
+#settingsForm input[type="number"],
+#settingsForm input[type="text"] {
+  padding: 10px 12px;
+  border: 2px solid #e4edf3;
+  border-radius: 10px;
+  width: 220px;
+  max-width: 100%;
+  background: #fff;
+  color: #22313f;
+}
+
+#settingsForm input[type="checkbox"] {
+  transform: scale(1.1);
+}
+
+#cancelSettingsBtn,
+#deleteLogsBtn {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.28);
+}
+
+.settings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+@media (max-width: 700px) {
+  .settings-shell {
+    width: calc(100% - 20px);
+    margin-top: 14px;
+  }
+
+  #settingsForm label {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #settingsForm input[type="number"],
+  #settingsForm input[type="text"] {
+    width: 100%;
+  }
+
+  .settings-topbar,
+  .settings-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settings-topbar button,
+  .settings-actions button {
+    width: 100%;
+  }
+}
