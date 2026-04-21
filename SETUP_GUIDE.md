@@ -1,5 +1,10 @@
 # ThankRain Water Monitoring System - Complete Setup Guide
 ---
+## Disclaimer
+This project is provided "as is", without any warranty of any kind, express or implied. I make no guarantees regarding its reliability, accuracy, or suitability for any particular purpose. Use it at your own risk. I am not responsible for any damage, data loss, hardware issues, or other problems that may occur as a result of using this project. This is a personal project, shared for educational and experimental purposes, and it may contain bugs, incomplete features, or unexpected behavior.
+
+
+---
 ### Step 1: Hardware Preparation
 
 -   **Ultrasonic Sensor SEN0208** - connect as the pinout [include/constants.h](include/constants.h) : - RXD2 (pin 16) - TXD2 (pin 21)\
